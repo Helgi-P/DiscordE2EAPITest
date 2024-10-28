@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "type": {
+      "type": "integer",
+      "enum": [0]
+    },
+    "content": { "type": "string" },
+    "channel_id": { "type": "string" },
+    "author": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "discriminator": { "type": "string" },
+        "public_flags": { "type": "integer" },
+        "flags": { "type": "integer" },
+        "avatar": { "type": ["string", "null"] },
+        "bot": { "type": ["boolean", "null"] },
+        "system": { "type": ["boolean", "null"] },
+        "banner": { "type": ["string", "null"] },
+        "accent_color": { "type": ["integer", "null"] }
+      },
+      "required": ["id", "username", "discriminator"]
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "filename": { "type": "string" },
+          "size": { "type": "integer" },
+          "url": { "type": "string", "format": "uri" },
+          "proxy_url": { "type": "string", "format": "uri" },
+          "width": { "type": ["integer", "null"] },
+          "height": { "type": ["integer", "null"] },
+          "duration_secs": { "type": ["number", "null"] },
+          "waveform": { "type": ["string", "null"] },
+          "description": { "type": ["string", "null"] },
+          "content_type": { "type": ["string", "null"] },
+          "ephemeral": { "type": ["boolean", "null"] }
+        },
+        "required": ["id", "filename", "size", "url"]
+      }
+    },
+    "embeds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "url": { "type": ["string", "null"], "format": "uri" },
+          "title": { "type": ["string", "null"] },
+          "description": { "type": ["string", "null"] },
+          "color": { "type": ["integer", "null"] },
+          "timestamp": { "type": ["string", "null"], "format": "date-time" },
+          "fields": { "type": ["array", "null"] }
+        }
+      }
+    },
+    "mentions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "username": { "type": "string" },
+          "discriminator": { "type": "string" },
+          "public_flags": { "type": "integer" },
+          "flags": { "type": "integer" },
+          "avatar": { "type": ["string", "null"] },
+          "bot": { "type": ["boolean", "null"] },
+          "system": { "type": ["boolean", "null"] },
+          "banner": { "type": ["string", "null"] },
+          "accent_color": { "type": ["integer", "null"] }
+        },
+        "required": ["id", "username", "discriminator"]
+      }
+    },
+    "mention_roles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "pinned": { "type": "boolean" },
+    "mention_everyone": { "type": "boolean" },
+    "tts": { "type": "boolean" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "flags": { "type": "integer" },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "integer" },
+          "components": { "type": ["array", "null"] }
+        }
+      }
+    },
+    "edited_timestamp": { "type": ["string", "null"], "format": "date-time" },
+    "nonce": { "type": "integer" },
+    "reactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "emoji": {
+            "type": "object",
+            "properties": {
+              "id": { "type": ["string", "null"] },
+              "name": { "type": ["string", "null"] },
+              "animated": { "type": ["boolean", "null"] }
+            }
+          },
+          "count": { "type": "integer" },
+          "me": { "type": "boolean" }
+        },
+        "required": ["emoji", "count"]
+      }
+    }
+  },
+  "required": ["id", "content", "channel_id", "author", "timestamp"]
+}

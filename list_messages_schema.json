@@ -1,0 +1,90 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "type": { "type": "integer" },
+        "content": { "type": "string" },
+        "mentions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "string" },
+                    "username": { "type": "string" },
+                    "avatar": { "type": ["string", "null"] },
+                    "discriminator": { "type": "string" },
+                    "public_flags": { "type": "integer" },
+                    "flags": { "type": "integer" },
+                    "banner": { "type": ["string", "null"] },
+                    "accent_color": { "type": ["integer", "null"] },
+                    "global_name": { "type": ["string", "null"] },
+                    "avatar_decoration_data": { "type": ["object", "null"] },
+                    "banner_color": { "type": ["string", "null"] },
+                    "clan": { "type": ["string", "null"] }
+                },
+                "required": ["id", "username", "discriminator", "public_flags", "flags"]
+            }
+        },
+        "mention_roles": { "type": "array", "items": { "type": "string" } },
+        "attachments": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "string" },
+                    "filename": { "type": "string" },
+                    "size": { "type": "integer" },
+                    "url": { "type": "string", "format": "uri" },
+                    "proxy_url": { "type": "string", "format": "uri" },
+                    "content_type": { "type": "string" },
+                    "content_scan_version": { "type": "integer" }
+                },
+                "required": ["id", "filename", "size", "url", "proxy_url"]
+            }
+        },
+        "embeds": { "type": "array", "items": { "type": "object" } },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "edited_timestamp": { "type": ["string", "null"], "format": "date-time" },
+        "flags": { "type": "integer" },
+        "components": { "type": "array", "items": { "type": "object" } },
+        "id": { "type": "string" },
+        "channel_id": { "type": "string" },
+        "author": {
+            "type": "object",
+            "properties": {
+                "id": { "type": "string" },
+                "username": { "type": "string" },
+                "avatar": { "type": ["string", "null"] },
+                "discriminator": { "type": "string" },
+                "public_flags": { "type": "integer" },
+                "flags": { "type": "integer" },
+                "bot": { "type": "boolean" },
+                "banner": { "type": ["string", "null"] },
+                "accent_color": { "type": ["integer", "null"] },
+                "global_name": { "type": ["string", "null"] },
+                "avatar_decoration_data": { "type": ["object", "null"] },
+                "banner_color": { "type": ["string", "null"] },
+                "clan": { "type": ["string", "null"] }
+            },
+            "required": ["id", "username", "discriminator", "public_flags", "flags"]
+        },
+        "pinned": { "type": "boolean" },
+        "mention_everyone": { "type": "boolean" },
+        "tts": { "type": "boolean" }
+    },
+    "required": [
+        "type",
+        "content",
+        "mentions",
+        "mention_roles",
+        "attachments",
+        "embeds",
+        "timestamp",
+        "id",
+        "channel_id",
+        "author",
+        "pinned",
+        "mention_everyone",
+        "tts"
+    ]
+}
