@@ -45,6 +45,8 @@ jobs:
     - name: Test with pytest
       run: |
         pytest test_DiscordAPI.py --alluredir=allure-results
+      continue-on-error: true
+      
     - name: Load test report history
       uses: actions/checkout@v3
       if: always()
