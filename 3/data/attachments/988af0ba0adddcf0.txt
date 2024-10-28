@@ -1,0 +1,5 @@
+URL: https://discord.com/api/v10/channels/1286673475565518878/messages
+Form data: {'content': 'Vdrug ohotnik vibegaet, pryamo v zaichika strelyaet <@1067428387817279541> Обрати внимание что творится! Öŕðéŕ þļåçéð šûççéššƒûļļý!'}
+Sending file: /tmp/tmpi8_ip4c_.png
+Response Status Code: 401
+Response Text: {"message": "401: Unauthorized", "code": 0}

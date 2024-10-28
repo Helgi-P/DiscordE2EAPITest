@@ -1,0 +1,5 @@
+URL: https://discord.com/api/v10/channels/1281160246110457922/messages
+Form data: {'content': 'Принесли его домой'}
+Sending file: /tmp/tmpby5fv0y3.jpeg
+Response Status Code: 401
+Response Text: {"message": "401: Unauthorized", "code": 0}
