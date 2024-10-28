@@ -42,6 +42,13 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Set environment variable
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+      run: |
+        pytest backend.py login_action.py frontend.py --alluredir=allure-results
+      continue-on-error: true
+     
     - name: Test with pytest
       run: |
         pytest test_DiscordAPI.py --alluredir=allure-results
@@ -63,18 +70,5 @@ jobs:
           allure_history: allure-history
           allure_results: allure-results
 
-    - name: Publish test report
-      uses: peaceiris/actions-gh-pages@v3
-      if: always()
-      with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-history
-
-    - name: Set environment variable
-      env:
-        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-      run: |
-        pytest backend.py login_action.py frontend.py --alluredir=allure-results
       continue-on-error: true
     
