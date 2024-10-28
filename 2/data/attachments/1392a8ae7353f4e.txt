@@ -1,0 +1,5 @@
+URL: https://discord.com/api/v10/channels/1286673450064412684/messages
+Form data: {'content': '12345 вышел зайчик погулять'}
+Sending file: /tmp/tmpe5j3vg_k.jpeg
+Response Status Code: 401
+Response Text: {"message": "401: Unauthorized", "code": 0}
