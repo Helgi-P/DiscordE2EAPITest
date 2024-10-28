@@ -1,17 +1,14 @@
 import pytest
 import os
-from dotenv import load_dotenv
-load_dotenv('DISCORD_TOKEN.env')
+
+@pytest.fixture
+def api_token():
+    return os.getenv('DISCORD_TOKEN')
 
 
 @pytest.fixture
 def base_url():
     return "https://discord.com/api/v10"
-
-
-@pytest.fixture
-def api_token():
-    return os.getenv('DISCORD_TOKEN')
 
 @pytest.fixture
 def headers(api_token):
